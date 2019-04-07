@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4ef8687a-4035-4349-8f2a-41e0c1f12f73" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:28970/SolicitudService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SolicitudService.xsd" MetadataType="Schema" ID="8fda2f35-b99a-4d62-95dd-d1659f4f404e" SourceId="1" SourceUrl="http://localhost:28970/SolicitudService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SolicitudService1.xsd" MetadataType="Schema" ID="adc1c726-811b-4b24-a9f3-3bf9aa4479e5" SourceId="1" SourceUrl="http://localhost:28970/SolicitudService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SolicitudService2.xsd" MetadataType="Schema" ID="73ad0e64-f8e5-4a45-9db0-53fcd62294df" SourceId="1" SourceUrl="http://localhost:28970/SolicitudService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SolicitudService.wsdl" MetadataType="Wsdl" ID="f247c698-42ab-47e6-9a98-a7f9e1b1ce04" SourceId="1" SourceUrl="http://localhost:28970/SolicitudService.svc?wsdl" />
+    <MetadataFile FileName="SolicitudService3.xsd" MetadataType="Schema" ID="e00c9973-52e2-4733-8f1b-276b7cdcae2e" SourceId="1" SourceUrl="http://localhost:28970/SolicitudService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SolicitudService4.xsd" MetadataType="Schema" ID="3599e9a5-cb3f-491b-b2c8-820619a5f96d" SourceId="1" SourceUrl="http://localhost:28970/SolicitudService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SolicitudService.disco" MetadataType="Disco" ID="b6971067-7eac-449b-85e7-32656e23fb14" SourceId="1" SourceUrl="http://localhost:28970/SolicitudService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
