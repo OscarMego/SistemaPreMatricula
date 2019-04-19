@@ -195,6 +195,7 @@
     <Content Include="obj\Debug\SistemaDePrematricula.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\SistemaDePrematricula.dll" />
     <Content Include="obj\Debug\SistemaDePrematricula.pdb" />
+    <Content Include="ReservaNuevo.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -286,6 +287,13 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Persistencia\UsuarioDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReservaNuevo.aspx.cs">
+      <DependentUpon>ReservaNuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReservaNuevo.aspx.designer.cs">
+      <DependentUpon>ReservaNuevo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -24,7 +24,7 @@
                 </a>
             </div>
             <div class="col-lg-6 col-sm-12" style="cursor: pointer">
-                <a runat="server" href="~/ReservaMatricula">
+                <a runat="server" href="~/ReservaNuevo">
                     <img src="image/reservar.svg" style="width: 250px" /><h2>Reservar Pre Matrícula</h2>
                 </a>
             </div>

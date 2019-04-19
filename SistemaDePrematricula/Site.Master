@@ -55,7 +55,7 @@
                         <li><a runat="server" href="~/ConfirmarMatricula">Confirmar Matrícula</a></li>
                         <li><a runat="server" href="~/GestionSolicitudes">Gestionar Solicitudes</a></li>
                         <li><a runat="server" href="~/ConsultarCursos">Consultar Cursos</a></li>
-                        <li><a runat="server" href="~/ReservaMatricula">Reservar Pre Matrícula</a></li>
+                        <li><a runat="server" href="~/ReservaNuevo">Reservar Pre Matrícula</a></li>
                     </ul>
                 </div>
             </div>
