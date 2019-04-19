@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="ServicioGestionSolicitudes.ApoderadoService" CodeBehind="ApoderadoService.svc.cs" %>

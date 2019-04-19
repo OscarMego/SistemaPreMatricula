@@ -9,7 +9,30 @@ namespace ServicioGestionSolicitudes.Persistencia
 {
     public class ApoderadoDao
     {
-        private string strConexion = "Data Source=.; Database=BdPrematriculas; uid=sa; pwd=1234";
+        private string strConexion = "Data Source=.;Initial Catalog=BdPrematriculas;Integrated Security=True";
+
+        public Apoderado PostApoderado(Apoderado Crear)
+        {
+            using (SqlConnection cn = new SqlConnection(strConexion))
+            {
+                cn.Open();
+                string sql1 = "INSERT INTO[dbo].[Apoderados]([NroDni], [Nombres], [ApellidoPaterno], [ApellidoMaterno], [Direccion], [NroCelular], [Correo], [Parentesco]) VALUES(@NroDni, @Nombres, @ApellidoPaterno, @ApellidoMaterno, @Direccion, ,@NroCelular, @Correo, @Parentesco)";
+                using (SqlCommand Comando = new SqlCommand(sql1, cn))
+                {
+                    Comando.Parameters.Add(new SqlParameter("@NroDni", Crear.NroDni));
+                    Comando.Parameters.Add(new SqlParameter("@Nombres", Crear.Nombres));
+                    Comando.Parameters.Add(new SqlParameter("@ApellidoPaterno", Crear.ApellidoPaterno));
+                    Comando.Parameters.Add(new SqlParameter("@ApellidoMaterno", Crear.ApellidoMaterno));
+                    Comando.Parameters.Add(new SqlParameter("@Direccion", Crear.Direccion));
+                    Comando.Parameters.Add(new SqlParameter("@NroCelular", Crear.NroCelular));
+                    Comando.Parameters.Add(new SqlParameter("@Correo", Crear.Correo));
+                    Comando.Parameters.Add(new SqlParameter("@Parentesco", Crear.Parentesco));
+                    Comando.ExecuteNonQuery();
+                }
+                return GetApoderado(Crear.NroDni);
+            }
+        }
+
         public Apoderado GetApoderado(string dni)
         {
             Apoderado apoderado = null;

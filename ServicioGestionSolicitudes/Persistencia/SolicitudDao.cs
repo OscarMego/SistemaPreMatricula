@@ -9,7 +9,7 @@ namespace ServicioGestionSolicitudes.Persistencia
 {
     public class SolicitudDao
     {
-        private string strConexion = "Data Source=.; Database=BdPrematriculas; uid=sa; pwd=1234";
+        private string strConexion = "Data Source=.;Initial Catalog=BdPrematriculas;Integrated Security=True";
 
         public Solicitud Crear(Solicitud solicitud)
         {

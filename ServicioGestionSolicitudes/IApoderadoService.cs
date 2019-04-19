@@ -1,4 +1,4 @@
-﻿using ServicioAlumnos.Dominio;
+﻿using ServicioGestionSolicitudes.Dominio;
 using ServicioGestionSolicitudes.Errores;
 using System;
 using System.Collections.Generic;
@@ -9,15 +9,15 @@ using System.Text;
 
 namespace ServicioGestionSolicitudes
 {
-    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IAlumnoService" en el código y en el archivo de configuración a la vez.
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IApoderadoService" en el código y en el archivo de configuración a la vez.
     [ServiceContract]
-    public interface IAlumnoService
+    public interface IApoderadoService
     {
         [FaultContract(typeof(ManejadorException))]
         [OperationContract]
-        Alumno Obtener(string dni);
+        Apoderado Obtener(string dni);
 
         [OperationContract]
-        Alumno Crear(Alumno Crear);
+        Apoderado Crear(Apoderado Crear);
     }
 }

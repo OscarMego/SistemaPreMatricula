@@ -19,12 +19,26 @@ namespace ServicioGestionSolicitudes
         {
             if (String.IsNullOrEmpty(dni))
             {
-                throw new FaultException<ManejadorException>(new ManejadorException() {
+                throw new FaultException<ManejadorException>(new ManejadorException()
+                {
                     Codigo = "100",
                     Descripcion = "DNI no puede ser vacío"
                 }, new FaultReason("Error al intentar obtener alumno"));
             }
             return dao.GetAlumno(dni);
+        }
+
+        Alumno IAlumnoService.Crear(Alumno Crear)
+        {
+            if (dao.GetAlumno(Crear.DNI) != null)
+            {
+                throw new FaultException<ManejadorException>(new ManejadorException()
+                {
+                    Codigo = "101",
+                    Descripcion = "DNI no puede repetirse"
+                }, new FaultReason("Error al intentar crear alumno, DNI repetido"));
+            }
+            return dao.PostAlumno(Crear);
         }
     }
 }

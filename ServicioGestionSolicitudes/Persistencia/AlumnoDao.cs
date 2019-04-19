@@ -9,7 +9,30 @@ namespace ServicioAlumnos.Persistencia
 {
     public class AlumnoDao
     {
-        private string strConexion = "Data Source=.; Database=BdPrematriculas; uid=sa; pwd=1234";
+        private string strConexion = "Data Source=.;Initial Catalog=BdPrematriculas;Integrated Security=True";
+
+        public Alumno PostAlumno(Alumno Crear)
+        {
+            using (SqlConnection cn = new SqlConnection(strConexion))
+            {
+                cn.Open();
+                string sql1 = "INSERT INTO [dbo].[Alumno]([NroDni], [Nombres], [ApellidoPaterno], [ApellidoMaterno], [Sexo], [FechaNacimiento], [IdNivel], [DniApoderado]) VALUES(@NroDni, @Nombres, @ApellidoPaterno, @ApellidoMaterno, @Sexo, ,@FechaNacimiento, @NroDniApoderado)";
+                using (SqlCommand Comando = new SqlCommand(sql1, cn))
+                {
+                    Comando.Parameters.Add(new SqlParameter("@NroDni", Crear.DNI));
+                    Comando.Parameters.Add(new SqlParameter("@Nombres", Crear.Nombres));
+                    Comando.Parameters.Add(new SqlParameter("@ApellidoPaterno", Crear.ApellidoPaterno));
+                    Comando.Parameters.Add(new SqlParameter("@ApellidoMaterno", Crear.ApellidoMaterno));
+                    Comando.Parameters.Add(new SqlParameter("@Sexo", Crear.Sexo));
+                    Comando.Parameters.Add(new SqlParameter("@FechaNacimiento", Crear.FechaNacimiento));
+                    Comando.Parameters.Add(new SqlParameter("@IdNivel", Crear.IdNivel));
+                    Comando.Parameters.Add(new SqlParameter("@DniApoderado", Crear.NroDniApoderado));
+                    Comando.ExecuteNonQuery();
+                }
+                return GetAlumno(Crear.DNI);
+            }
+        }
+
         public Alumno GetAlumno(string dni)
         {
             Alumno alumno = null;

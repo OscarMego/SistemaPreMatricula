@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AlumnoService.svc" />
+    <Content Include="ApoderadoService.svc" />
     <Content Include="SolicitudService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -68,11 +69,15 @@
     <Compile Include="AlumnoService.svc.cs">
       <DependentUpon>AlumnoService.svc</DependentUpon>
     </Compile>
+    <Compile Include="ApoderadoService.svc.cs">
+      <DependentUpon>ApoderadoService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Dominio\Alumno.cs" />
     <Compile Include="Dominio\Apoderado.cs" />
     <Compile Include="Dominio\Solicitud.cs" />
     <Compile Include="Errores\ManejadorException.cs" />
     <Compile Include="IAlumnoService.cs" />
+    <Compile Include="IApoderadoService.cs" />
     <Compile Include="ISolicitudService.cs" />
     <Compile Include="Persistencia\AlumnoDao.cs" />
     <Compile Include="Persistencia\ApoderadoDao.cs" />
