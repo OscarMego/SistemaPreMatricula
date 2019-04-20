@@ -8,16 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SistemaDePrematricula.AlumnoServWS {
+namespace SistemaDePrematricula.ApoderadoServWS {
     using System.Runtime.Serialization;
     using System;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Alumno", Namespace="http://schemas.datacontract.org/2004/07/ServicioAlumnos.Dominio")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Apoderado", Namespace="http://schemas.datacontract.org/2004/07/ServicioGestionSolicitudes.Dominio")]
     [System.SerializableAttribute()]
-    public partial class Alumno : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Apoderado : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -29,28 +29,22 @@ namespace SistemaDePrematricula.AlumnoServWS {
         private string ApellidoPaternoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DNIField;
+        private string CorreoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime FechaNacimientoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string GradoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdNivelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NivelField;
+        private string DireccionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NombresField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NroDniApoderadoField;
+        private string NroCelularField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SexoField;
+        private string NroDniField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ParentescoField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -89,66 +83,27 @@ namespace SistemaDePrematricula.AlumnoServWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DNI {
+        public string Correo {
             get {
-                return this.DNIField;
+                return this.CorreoField;
             }
             set {
-                if ((object.ReferenceEquals(this.DNIField, value) != true)) {
-                    this.DNIField = value;
-                    this.RaisePropertyChanged("DNI");
+                if ((object.ReferenceEquals(this.CorreoField, value) != true)) {
+                    this.CorreoField = value;
+                    this.RaisePropertyChanged("Correo");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime FechaNacimiento {
+        public string Direccion {
             get {
-                return this.FechaNacimientoField;
+                return this.DireccionField;
             }
             set {
-                if ((this.FechaNacimientoField.Equals(value) != true)) {
-                    this.FechaNacimientoField = value;
-                    this.RaisePropertyChanged("FechaNacimiento");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Grado {
-            get {
-                return this.GradoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.GradoField, value) != true)) {
-                    this.GradoField = value;
-                    this.RaisePropertyChanged("Grado");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdNivel {
-            get {
-                return this.IdNivelField;
-            }
-            set {
-                if ((this.IdNivelField.Equals(value) != true)) {
-                    this.IdNivelField = value;
-                    this.RaisePropertyChanged("IdNivel");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nivel {
-            get {
-                return this.NivelField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NivelField, value) != true)) {
-                    this.NivelField = value;
-                    this.RaisePropertyChanged("Nivel");
+                if ((object.ReferenceEquals(this.DireccionField, value) != true)) {
+                    this.DireccionField = value;
+                    this.RaisePropertyChanged("Direccion");
                 }
             }
         }
@@ -167,27 +122,40 @@ namespace SistemaDePrematricula.AlumnoServWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NroDniApoderado {
+        public string NroCelular {
             get {
-                return this.NroDniApoderadoField;
+                return this.NroCelularField;
             }
             set {
-                if ((object.ReferenceEquals(this.NroDniApoderadoField, value) != true)) {
-                    this.NroDniApoderadoField = value;
-                    this.RaisePropertyChanged("NroDniApoderado");
+                if ((object.ReferenceEquals(this.NroCelularField, value) != true)) {
+                    this.NroCelularField = value;
+                    this.RaisePropertyChanged("NroCelular");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Sexo {
+        public string NroDni {
             get {
-                return this.SexoField;
+                return this.NroDniField;
             }
             set {
-                if ((object.ReferenceEquals(this.SexoField, value) != true)) {
-                    this.SexoField = value;
-                    this.RaisePropertyChanged("Sexo");
+                if ((object.ReferenceEquals(this.NroDniField, value) != true)) {
+                    this.NroDniField = value;
+                    this.RaisePropertyChanged("NroDni");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Parentesco {
+            get {
+                return this.ParentescoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ParentescoField, value) != true)) {
+                    this.ParentescoField = value;
+                    this.RaisePropertyChanged("Parentesco");
                 }
             }
         }
@@ -264,63 +232,63 @@ namespace SistemaDePrematricula.AlumnoServWS {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AlumnoServWS.IAlumnoService")]
-    public interface IAlumnoService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ApoderadoServWS.IApoderadoService")]
+    public interface IApoderadoService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlumnoService/Obtener", ReplyAction="http://tempuri.org/IAlumnoService/ObtenerResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SistemaDePrematricula.AlumnoServWS.ManejadorException), Action="http://tempuri.org/IAlumnoService/ObtenerManejadorExceptionFault", Name="ManejadorException", Namespace="http://schemas.datacontract.org/2004/07/ServicioGestionSolicitudes.Errores")]
-        SistemaDePrematricula.AlumnoServWS.Alumno Obtener(string dni);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApoderadoService/Obtener", ReplyAction="http://tempuri.org/IApoderadoService/ObtenerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SistemaDePrematricula.ApoderadoServWS.ManejadorException), Action="http://tempuri.org/IApoderadoService/ObtenerManejadorExceptionFault", Name="ManejadorException", Namespace="http://schemas.datacontract.org/2004/07/ServicioGestionSolicitudes.Errores")]
+        SistemaDePrematricula.ApoderadoServWS.Apoderado Obtener(string dni);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlumnoService/Obtener", ReplyAction="http://tempuri.org/IAlumnoService/ObtenerResponse")]
-        System.Threading.Tasks.Task<SistemaDePrematricula.AlumnoServWS.Alumno> ObtenerAsync(string dni);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApoderadoService/Obtener", ReplyAction="http://tempuri.org/IApoderadoService/ObtenerResponse")]
+        System.Threading.Tasks.Task<SistemaDePrematricula.ApoderadoServWS.Apoderado> ObtenerAsync(string dni);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlumnoService/Crear", ReplyAction="http://tempuri.org/IAlumnoService/CrearResponse")]
-        SistemaDePrematricula.AlumnoServWS.Alumno Crear([System.ServiceModel.MessageParameterAttribute(Name="Crear")] SistemaDePrematricula.AlumnoServWS.Alumno Crear1);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApoderadoService/Crear", ReplyAction="http://tempuri.org/IApoderadoService/CrearResponse")]
+        SistemaDePrematricula.ApoderadoServWS.Apoderado Crear([System.ServiceModel.MessageParameterAttribute(Name="Crear")] SistemaDePrematricula.ApoderadoServWS.Apoderado Crear1);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlumnoService/Crear", ReplyAction="http://tempuri.org/IAlumnoService/CrearResponse")]
-        System.Threading.Tasks.Task<SistemaDePrematricula.AlumnoServWS.Alumno> CrearAsync(SistemaDePrematricula.AlumnoServWS.Alumno Crear);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApoderadoService/Crear", ReplyAction="http://tempuri.org/IApoderadoService/CrearResponse")]
+        System.Threading.Tasks.Task<SistemaDePrematricula.ApoderadoServWS.Apoderado> CrearAsync(SistemaDePrematricula.ApoderadoServWS.Apoderado Crear);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IAlumnoServiceChannel : SistemaDePrematricula.AlumnoServWS.IAlumnoService, System.ServiceModel.IClientChannel {
+    public interface IApoderadoServiceChannel : SistemaDePrematricula.ApoderadoServWS.IApoderadoService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AlumnoServiceClient : System.ServiceModel.ClientBase<SistemaDePrematricula.AlumnoServWS.IAlumnoService>, SistemaDePrematricula.AlumnoServWS.IAlumnoService {
+    public partial class ApoderadoServiceClient : System.ServiceModel.ClientBase<SistemaDePrematricula.ApoderadoServWS.IApoderadoService>, SistemaDePrematricula.ApoderadoServWS.IApoderadoService {
         
-        public AlumnoServiceClient() {
+        public ApoderadoServiceClient() {
         }
         
-        public AlumnoServiceClient(string endpointConfigurationName) : 
+        public ApoderadoServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public AlumnoServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public ApoderadoServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AlumnoServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ApoderadoServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AlumnoServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ApoderadoServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public SistemaDePrematricula.AlumnoServWS.Alumno Obtener(string dni) {
+        public SistemaDePrematricula.ApoderadoServWS.Apoderado Obtener(string dni) {
             return base.Channel.Obtener(dni);
         }
         
-        public System.Threading.Tasks.Task<SistemaDePrematricula.AlumnoServWS.Alumno> ObtenerAsync(string dni) {
+        public System.Threading.Tasks.Task<SistemaDePrematricula.ApoderadoServWS.Apoderado> ObtenerAsync(string dni) {
             return base.Channel.ObtenerAsync(dni);
         }
         
-        public SistemaDePrematricula.AlumnoServWS.Alumno Crear(SistemaDePrematricula.AlumnoServWS.Alumno Crear1) {
+        public SistemaDePrematricula.ApoderadoServWS.Apoderado Crear(SistemaDePrematricula.ApoderadoServWS.Apoderado Crear1) {
             return base.Channel.Crear(Crear1);
         }
         
-        public System.Threading.Tasks.Task<SistemaDePrematricula.AlumnoServWS.Alumno> CrearAsync(SistemaDePrematricula.AlumnoServWS.Alumno Crear) {
+        public System.Threading.Tasks.Task<SistemaDePrematricula.ApoderadoServWS.Apoderado> CrearAsync(SistemaDePrematricula.ApoderadoServWS.Apoderado Crear) {
             return base.Channel.CrearAsync(Crear);
         }
     }

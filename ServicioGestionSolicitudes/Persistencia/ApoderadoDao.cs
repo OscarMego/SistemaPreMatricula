@@ -16,7 +16,7 @@ namespace ServicioGestionSolicitudes.Persistencia
             using (SqlConnection cn = new SqlConnection(strConexion))
             {
                 cn.Open();
-                string sql1 = "INSERT INTO[dbo].[Apoderados]([NroDni], [Nombres], [ApellidoPaterno], [ApellidoMaterno], [Direccion], [NroCelular], [Correo], [Parentesco]) VALUES(@NroDni, @Nombres, @ApellidoPaterno, @ApellidoMaterno, @Direccion, ,@NroCelular, @Correo, @Parentesco)";
+                string sql1 = "INSERT INTO[dbo].[Apoderados]([NroDni], [Nombres], [ApellidoPaterno], [ApellidoMaterno], [Direccion], [NroCelular], [Correo], [Parentesco]) VALUES(@NroDni, @Nombres, @ApellidoPaterno, @ApellidoMaterno, @Direccion, @NroCelular, @Correo, @Parentesco)";
                 using (SqlCommand Comando = new SqlCommand(sql1, cn))
                 {
                     Comando.Parameters.Add(new SqlParameter("@NroDni", Crear.NroDni));
@@ -30,6 +30,27 @@ namespace ServicioGestionSolicitudes.Persistencia
                     Comando.ExecuteNonQuery();
                 }
                 return GetApoderado(Crear.NroDni);
+            }
+        }
+
+        public Apoderado PutApoderado(Apoderado Modificar)
+        {
+            using (SqlConnection cn = new SqlConnection(strConexion))
+            {
+                cn.Open();
+                string sql1 = "UPDATE [dbo].[Apoderados] SET[Nombres] = @Nombres, [ApellidoPaterno] = @ApellidoPaterno, [ApellidoMaterno] =@ApellidoMaterno, [Direccion] = @Direccion, [NroCelular] =@NroCelular, [Correo] = @Correo, [Parentesco] = @Parentesco";
+                using (SqlCommand Comando = new SqlCommand(sql1, cn))
+                {
+                    Comando.Parameters.Add(new SqlParameter("@Nombres", Modificar.Nombres));
+                    Comando.Parameters.Add(new SqlParameter("@ApellidoPaterno", Modificar.ApellidoPaterno));
+                    Comando.Parameters.Add(new SqlParameter("@ApellidoMaterno", Modificar.ApellidoMaterno));
+                    Comando.Parameters.Add(new SqlParameter("@Direccion", Modificar.Direccion));
+                    Comando.Parameters.Add(new SqlParameter("@NroCelular", Modificar.NroCelular));
+                    Comando.Parameters.Add(new SqlParameter("@Correo", Modificar.Correo));
+                    Comando.Parameters.Add(new SqlParameter("@Parentesco", Modificar.Parentesco));
+                    Comando.ExecuteNonQuery();
+                }
+                return GetApoderado(Modificar.NroDni);
             }
         }
 

@@ -9,7 +9,7 @@ namespace SistemaDePrematricula.Persistencia
 {
     public class UsuarioDao
     {
-        private string strConexion = "Data Source=.; Database=BdPrematriculas; uid=sa; pwd=1234";
+        private string strConexion = "Data Source=.;Initial Catalog=BdPrematriculas;Integrated Security=True";
         public Usuario LoginAlumno(string login, string clave)
         {
             Usuario usuario = null;

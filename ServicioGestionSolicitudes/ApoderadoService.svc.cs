@@ -20,7 +20,16 @@ namespace ServicioGestionSolicitudes
 
         public Apoderado Crear(Apoderado Crear)
         {
-            throw new NotImplementedException();
+            Apoderado apoderado = dao.GetApoderado(Crear.NroDni);
+            if (apoderado != null)
+            {
+               apoderado = dao.PutApoderado(apoderado);
+            }
+            else
+            {
+                apoderado = dao.PostApoderado(Crear);
+            }
+            return apoderado;
         }
 
         public Apoderado Obtener(string dni)

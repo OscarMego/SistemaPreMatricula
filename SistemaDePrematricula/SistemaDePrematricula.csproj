@@ -122,7 +122,53 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\ApoderadoServWS\ApoderadoService.disco" />
+    <None Include="Connected Services\ApoderadoServWS\configuration91.svcinfo" />
+    <None Include="Connected Services\ApoderadoServWS\configuration.svcinfo" />
+    <None Include="Connected Services\ApoderadoServWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\NivelesServWS\NivelesService.disco" />
+    <None Include="Connected Services\NivelesServWS\configuration91.svcinfo" />
+    <None Include="Connected Services\NivelesServWS\configuration.svcinfo" />
+    <None Include="Connected Services\NivelesServWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\SolicitudServWS\SistemaDePrematricula.SolicitudServWS.Solicitud.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ApoderadoServWS\ApoderadoService.wsdl" />
+    <None Include="Connected Services\ApoderadoServWS\ApoderadoService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ApoderadoServWS\ApoderadoService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ApoderadoServWS\ApoderadoService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ApoderadoServWS\ApoderadoService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\ApoderadoServWS\SistemaDePrematricula.ApoderadoServWS.Apoderado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\NivelesServWS\NivelesService.wsdl" />
+    <None Include="Connected Services\NivelesServWS\NivelesService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\NivelesServWS\NivelesService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\NivelesServWS\NivelesService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\NivelesServWS\NivelesService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\NivelesServWS\SistemaDePrematricula.NivelesServWS.Niveles.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\SolicitudServWS\SolicitudService.disco" />
@@ -252,6 +298,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ApoderadoServWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\NivelesServWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\SolicitudServWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -336,6 +392,8 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AlumnoServWS\" />
+    <WCFMetadataStorage Include="Connected Services\ApoderadoServWS\" />
+    <WCFMetadataStorage Include="Connected Services\NivelesServWS\" />
     <WCFMetadataStorage Include="Connected Services\SolicitudServWS\" />
   </ItemGroup>
   <PropertyGroup>

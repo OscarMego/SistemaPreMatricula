@@ -16,7 +16,7 @@ namespace ServicioAlumnos.Persistencia
             using (SqlConnection cn = new SqlConnection(strConexion))
             {
                 cn.Open();
-                string sql1 = "INSERT INTO [dbo].[Alumno]([NroDni], [Nombres], [ApellidoPaterno], [ApellidoMaterno], [Sexo], [FechaNacimiento], [IdNivel], [DniApoderado]) VALUES(@NroDni, @Nombres, @ApellidoPaterno, @ApellidoMaterno, @Sexo, ,@FechaNacimiento, @NroDniApoderado)";
+                string sql1 = "INSERT INTO [dbo].[Alumnos]([NroDni], [Nombres], [ApellidoPaterno], [ApellidoMaterno], [Sexo], [FechaNacimiento], [IdNivel], [DniApoderado]) VALUES(@NroDni, @Nombres, @ApellidoPaterno, @ApellidoMaterno, @Sexo, @FechaNacimiento,@IdNivel, @NroDniApoderado)";
                 using (SqlCommand Comando = new SqlCommand(sql1, cn))
                 {
                     Comando.Parameters.Add(new SqlParameter("@NroDni", Crear.DNI));
@@ -26,7 +26,7 @@ namespace ServicioAlumnos.Persistencia
                     Comando.Parameters.Add(new SqlParameter("@Sexo", Crear.Sexo));
                     Comando.Parameters.Add(new SqlParameter("@FechaNacimiento", Crear.FechaNacimiento));
                     Comando.Parameters.Add(new SqlParameter("@IdNivel", Crear.IdNivel));
-                    Comando.Parameters.Add(new SqlParameter("@DniApoderado", Crear.NroDniApoderado));
+                    Comando.Parameters.Add(new SqlParameter("@NroDniApoderado", Crear.NroDniApoderado));
                     Comando.ExecuteNonQuery();
                 }
                 return GetAlumno(Crear.DNI);
