@@ -38,6 +38,7 @@
                 </div>
             </div>
         </div>
+        <asp:LinkButton ID="btn_seleccionar" runat="server"></asp:LinkButton>
     </div>
 
     <script>
@@ -55,14 +56,14 @@
                     if (solicitudes != null && solicitudes != undefined) {
                         alert("Bienvenido al sistema");
                         $('#dvLogin').hide();
-                        var tabla = '<table class="table table-hover"><thead><tr><th scope="col">DNI</th> <th scope="col">Alumno</th><th scope="col">Nivel</th><th scope="col">Grado</th><th scope="col">Tipo</th><th scope="col">Estado</th><th scope="col">Fecha Solicitud</th></tr></thead><tbody>'
+                        var tabla = '<table class="table table-hover"><thead><tr><th scope="col">DNI</th> <th scope="col">Alumno</th><th scope="col">Nivel</th><th scope="col">Grado</th><th scope="col">Tipo</th><th scope="col">Estado</th><th scope="col">Fecha Solicitud</th><th scope="col"></th></tr></thead><tbody>'
                         for (var i = 0; i < solicitudes.length; i++) {
                             solicitudes[i].FechaSolicitud = solicitudes[i].FechaSolicitud.replace('/Date(', '');
                             solicitudes[i].FechaSolicitud = solicitudes[i].FechaSolicitud.replace(')/', '');
                             var expDate = new Date(parseInt(solicitudes[i].FechaSolicitud));
                             tabla = tabla + '<tr><td>' + solicitudes[i].NroDniAlumno + '</td><td>' + solicitudes[i].NombreApellidoAlumno + '</td><td>' +
                                 solicitudes[i].Nivel + '</td><td>' + solicitudes[i].Grado + '</td><td>' + solicitudes[i].Tipo + '</td><td>' + solicitudes[i].Estado +
-                                '</td><td>' + ("0" + expDate.getDate()).slice(-2) + "-" + ("0" + (expDate.getMonth() + 1)).slice(-2) + "-" + expDate.getFullYear() + '</td></tr>';
+                                '</td><td>' + ("0" + expDate.getDate()).slice(-2) + "-" + ("0" + (expDate.getMonth() + 1)).slice(-2) + "-" + expDate.getFullYear() + '</td><td><a title="Editar la solicitud" href="javascript:openWindow(&quot;GestionSolicitudesEditar.aspx?a=M&id=' + solicitudes[i].IdPreMatricula + '&dni=' + solicitudes[i].NroDniAlumno + '&quot;,1000,700);">Editar</a></td></tr>';
                         }
                         tabla = tabla + '<tbody></table>';
                         $('#dvTabla').html(tabla);
@@ -76,6 +77,27 @@
                     alert("No se pudo iniciar sesión");
                 }
             });
+        }
+
+        var w_id = null;
+
+        function openWindow(aUrl,aWidth,aHeight,x,y) {
+	        var ls_BarFeatures = "location=no, menubar=no, resizable=no,scrollbars=no, titlebar=no, toolbar=no"
+
+	        if (!x) {
+		        x = (window.screen.availWidth - 10 - aWidth) /2;
+		        y = (window.screen.availHeight -30 - aHeight) /2;
+	        }
+	        if (w_id) w_id.close()
+	
+	        var aW, aH, ls_aw_ah="";
+            if (aUrl.indexOf("AW")<=0) {
+	            aW = aWidth + 10;
+	            aH = aHeight + 10;
+	            ls_aw_ah = "&AW=" + aW + "&AH=" + aH
+	        }
+	
+            w_id = window.open (aUrl + ls_aw_ah,"","height="+ aHeight +", width=" + aWidth +", left=" + x +", top=" + y +"," + ls_BarFeatures) 
         }
     </script>
 </asp:Content>

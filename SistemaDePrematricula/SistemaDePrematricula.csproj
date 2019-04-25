@@ -188,6 +188,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="GestionSolicitudes.aspx" />
+    <Content Include="GestionSolicitudesEditar.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -334,6 +335,13 @@
     </Compile>
     <Compile Include="GestionSolicitudes.aspx.designer.cs">
       <DependentUpon>GestionSolicitudes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionSolicitudesEditar.aspx.cs">
+      <DependentUpon>GestionSolicitudesEditar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionSolicitudesEditar.aspx.designer.cs">
+      <DependentUpon>GestionSolicitudesEditar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

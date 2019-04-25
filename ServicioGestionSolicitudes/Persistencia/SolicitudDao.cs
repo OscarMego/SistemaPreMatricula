@@ -180,7 +180,14 @@ namespace ServicioGestionSolicitudes.Persistencia
                     sqlParameters.Add(parameter);
                     parameter = new SqlParameter("@FechaSolicitud", solicitud.FechaSolicitud);
                     sqlParameters.Add(parameter);
-                    parameter = new SqlParameter("@FechaCita", solicitud.FechaCita);
+                    if (solicitud.FechaCita.Year == 1)
+                    {
+                        parameter = new SqlParameter("@FechaCita", DBNull.Value);
+                    }
+                    else
+                    {
+                        parameter = new SqlParameter("@FechaCita", solicitud.FechaCita);
+                    }
                     sqlParameters.Add(parameter);
                     parameter = new SqlParameter("@FechaRespuesta", solicitud.FechaRespuesta);
                     sqlParameters.Add(parameter);
