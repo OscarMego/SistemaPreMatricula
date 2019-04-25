@@ -43,5 +43,22 @@ namespace SistemaDePrematricula
                 throw new Exception("ERROR: " + ex.Message);
             }
         }
+
+        [WebMethod]
+        public static List<SolicitudServWS.Solicitud> ActualizarLista()
+        {
+            try
+            {
+                List<SolicitudServWS.Solicitud> solicitudes = null;
+                SolicitudServWS.SolicitudServiceClient solicitudService = new SolicitudServWS.SolicitudServiceClient();
+                solicitudes = solicitudService.Listar().ToList();
+
+                return solicitudes;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("ERROR: " + ex.Message);
+            }
+        }
     }
 }

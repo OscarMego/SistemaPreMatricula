@@ -109,7 +109,7 @@ namespace SistemaDePrematricula {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtSolicitud;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtSolicitud;
         
         /// <summary>
         /// txtEstado control.
@@ -127,7 +127,7 @@ namespace SistemaDePrematricula {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtCita;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtCita;
         
         /// <summary>
         /// txtObservaciones control.

@@ -37,7 +37,7 @@
         <input id="txtDNIApoderado" type="hidden" runat="server" />
 
         <div class="container body-content">
-
+            <h2>Edición de la Solicitud</h2>
             <div class="container">
                 <div class="panel panel-primary">
                     <div class="panel-body">
@@ -63,7 +63,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="txtSolicitud">F. Solicitud</label>
-                            <input type="date" class="form-control" id="txtSolicitud" runat="server" disabled="disabled" />
+                            <input type="text" class="form-control" id="txtSolicitud" runat="server" disabled="disabled" />
                         </div>
                         <div class="form-group col-md-6">
                             <label for="txtEstado">Estado</label>
@@ -76,7 +76,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="txtCita">F. Cita</label>
-                            <input type="date" class="form-control" id="txtCita" runat="server" />
+                            <input type="text" class="form-control" id="txtCita" runat="server" />
                         </div>
                         <div class="row">
                             <div class="col-md-12">
@@ -139,7 +139,7 @@
                         var solicitud = data.d;
                         if (data.d == "OK") {
                             alert("El registro fué grabado satisfactoriamente");
-                            window.opener.__doPostBack('btn_seleccionar', '');
+                            window.opener.actualizarLista();
                             window.close();
                         } else {
                             alert("datos incorrectos");
