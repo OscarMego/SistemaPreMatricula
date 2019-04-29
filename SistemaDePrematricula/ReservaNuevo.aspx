@@ -38,19 +38,19 @@
                 <div class="panel-body">
                     <div class="form-group col-md-6">
                         <label for="txtDNI">DNI</label>
-                        <input type="text" id="txtDNI" placeholder="DNI Alumno" class="form-control" />
+                        <input type="text" id="txtDNI" placeholder="DNI Alumno" class="form-control" maxlength="8" />
                     </div>
                     <div class="form-group col-md-6">
                         <label for="txtNombres">Nombres</label>
-                        <input id="txtNombres" type="text" class="form-control" placeholder="Nombres" />
+                        <input id="txtNombres" type="text" class="form-control" placeholder="Nombres" maxlength="20" />
                     </div>
                     <div class="form-group col-md-6">
                         <label for="txtApellidoPaterno">Apellido paterno</label>
-                        <input type="text" class="form-control" id="txtApellidoPaterno" placeholder="Apellido paterno">
+                        <input type="text" class="form-control" id="txtApellidoPaterno" placeholder="Apellido paterno" maxlength="20">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="txtApellidoMaterno">Apellido materno</label>
-                        <input type="text" class="form-control" id="txtApellidoMaterno" placeholder="Apellido materno">
+                        <input type="text" class="form-control" id="txtApellidoMaterno" placeholder="Apellido materno" maxlength="20">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="txtSexo">Sexo</label>
@@ -90,35 +90,35 @@
                 <div class="panel-body">
                     <div class="form-group col-md-6">
                         <label for="txtDniApoderado">DNI</label>
-                        <input id="txtDniApoderado" type="text" onfocusout="verificarApoderado(this)" class="form-control" placeholder="DNI">
+                        <input id="txtDniApoderado" type="text" onfocusout="verificarApoderado(this)" class="form-control" placeholder="DNI" maxlength="8">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="TextNombreApoderado">Nombres</label>
-                        <input id="TextNombreApoderado" type="text" class="form-control" placeholder="Nombres">
+                        <input id="TextNombreApoderado" type="text" class="form-control" placeholder="Nombres" maxlength="20">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="TextApellidoPaternoApoderado">Apellido paterno</label>
-                        <input type="text" class="form-control" id="TextApellidoPaternoApoderado" placeholder="Apellido paterno">
+                        <input type="text" class="form-control" id="TextApellidoPaternoApoderado" placeholder="Apellido paterno" maxlength="20">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="TextApellidoMeternoApoderado">Apellido materno</label>
-                        <input type="text" class="form-control" id="TextApellidoMeternoApoderado" placeholder="Apellido materno">
+                        <input type="text" class="form-control" id="TextApellidoMeternoApoderado" placeholder="Apellido materno" maxlength="20">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="TextDireccionApoderado">Dirección</label>
-                        <input type="text" class="form-control" id="TextDireccionApoderado" placeholder="Direccion">
+                        <input type="text" class="form-control" id="TextDireccionApoderado" placeholder="Direccion" maxlength="50">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="TextCelularApoderado">Celular</label>
-                        <input type="text" class="form-control" id="TextCelularApoderado" placeholder="Celular">
+                        <input type="text" class="form-control" id="TextCelularApoderado" placeholder="Celular" maxlength="20">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="TextCorreoApoderado">Correo</label>
-                        <input type="email" class="form-control" id="TextCorreoApoderado" placeholder="Correo">
+                        <input type="email" class="form-control" id="TextCorreoApoderado" placeholder="Correo" maxlength="20">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="TextParentezco">Parentezco</label>
-                        <input type="text" class="form-control" id="TextParentezco" placeholder="Parentezco">
+                        <input type="text" class="form-control" id="TextParentezco" placeholder="Parentezco" maxlength="20">
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-8">
                 <a class="col-md-4 btn btn-primary" style="margin-right: 10px" href="/">Cancelar</a>
-                <button id="btnRRegistro" class="col-md-4 btn btn-primary" style="margin-right: 10px" onclick="registrarSolicitud()">Registrar</button>
+                <div id="btnRRegistro" class="col-md-4 btn btn-primary" style="margin-right: 10px" onclick="registrarSolicitud()">Registrar</div>
             </div>
         </div>
     </div>
@@ -384,7 +384,9 @@
                     } else {
                         alert('No se pudo generar la reserva, intetalo más tarde.');
                     }
-                },
+                }, error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Ocurrió un error al intentar registrar");
+                }
             });
         }
         function verificarVacante() {
@@ -399,7 +401,6 @@
                 success: function (data) {
                     var nivel = data.d;
                     if (nivel !== null && nivel != undefined) {
-
                         if (nivel.DisponibleVacantes != 0) {
                             if (confirm("Si se encontraron vacantes disponibles ¿Desea realizar la reservas?")) {
                                 $('#dvVerificarVacante').hide();
@@ -408,17 +409,14 @@
                                 document.location.href = "/";
                             }
                         } else {
-
                             alert('No existe vacante para este nivel ni grado.');
                             document.location.href = "/";
                         }
-
-
                     } else {
                         alert('No se pudo verificar el nivel');
                     }
                 }, error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("some error");
+                    alert("Ocurrió un error al obtener el nivel");
                 }
             });
         }
