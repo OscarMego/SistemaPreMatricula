@@ -114,6 +114,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Api.aspx" />
+    <Content Include="Asociado.aspx" />
     <Content Include="ConfirmarMatricula.aspx" />
     <None Include="Connected Services\AlumnoServWS\AlumnoService.disco" />
     <None Include="Connected Services\AlumnoServWS\configuration91.svcinfo" />
@@ -129,10 +131,33 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\AsociadoWSMnt\RegistroService.wsdl" />
+    <None Include="Connected Services\AsociadoWSMnt\RegistroService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AsociadoWSMnt\RegistroService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AsociadoWSMnt\RegistroService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AsociadoWSMnt\RegistroService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\AsociadoWSMnt\SistemaDePrematricula.AsociadoWSMnt.Asociado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\NivelesServWS\NivelesService.disco" />
     <None Include="Connected Services\NivelesServWS\configuration91.svcinfo" />
     <None Include="Connected Services\NivelesServWS\configuration.svcinfo" />
     <None Include="Connected Services\NivelesServWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\AsociadoWSMnt\RegistroService.disco" />
+    <None Include="Connected Services\AsociadoWSMnt\configuration91.svcinfo" />
+    <None Include="Connected Services\AsociadoWSMnt\configuration.svcinfo" />
+    <None Include="Connected Services\AsociadoWSMnt\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -178,6 +203,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="ConsultarCursos.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -278,6 +304,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api.aspx.cs">
+      <DependentUpon>Api.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Api.aspx.designer.cs">
+      <DependentUpon>Api.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -287,6 +320,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Asociado.aspx.cs">
+      <DependentUpon>Asociado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Asociado.aspx.designer.cs">
+      <DependentUpon>Asociado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ConfirmarMatricula.aspx.cs">
       <DependentUpon>ConfirmarMatricula.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,6 +344,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\AsociadoWSMnt\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\NivelesServWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -313,6 +358,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarCursos.aspx.cs">
+      <DependentUpon>ConsultarCursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarCursos.aspx.designer.cs">
+      <DependentUpon>ConsultarCursos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -401,6 +453,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AlumnoServWS\" />
     <WCFMetadataStorage Include="Connected Services\ApoderadoServWS\" />
+    <WCFMetadataStorage Include="Connected Services\AsociadoWSMnt\" />
     <WCFMetadataStorage Include="Connected Services\NivelesServWS\" />
     <WCFMetadataStorage Include="Connected Services\SolicitudServWS\" />
   </ItemGroup>

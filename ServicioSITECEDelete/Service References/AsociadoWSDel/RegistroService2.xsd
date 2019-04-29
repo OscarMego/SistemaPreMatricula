@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:52493/RegistroService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ServicioSITECE.Dominio" />
+  <xs:element name="CrearAsociado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ServicioSITECE.Dominio" minOccurs="0" name="asociado" nillable="true" type="q1:Asociado" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CrearAsociadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ServicioSITECE.Dominio" minOccurs="0" name="CrearAsociadoResult" nillable="true" type="q2:Asociado" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerAsociado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoModular" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerAsociadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ServicioSITECE.Dominio" minOccurs="0" name="ObtenerAsociadoResult" nillable="true" type="q3:Asociado" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerAsociadoToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerAsociadoTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ServicioSITECE.Dominio" minOccurs="0" name="ObtenerAsociadoTokenResult" nillable="true" type="q4:Asociado" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

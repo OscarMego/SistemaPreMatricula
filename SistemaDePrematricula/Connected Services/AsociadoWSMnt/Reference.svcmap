@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="55518e23-436c-411a-9ea9-1f47ae678ac5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52493/RegistroService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RegistroService.disco" MetadataType="Disco" ID="a6f94a19-5bf8-49c8-8c70-f7adfee68669" SourceId="1" SourceUrl="http://localhost:52493/RegistroService.svc?disco" />
+    <MetadataFile FileName="RegistroService.xsd" MetadataType="Schema" ID="862b4351-5c70-4dea-97f3-1eec56a2aab3" SourceId="1" SourceUrl="http://localhost:52493/RegistroService.svc?xsd=xsd2" />
+    <MetadataFile FileName="RegistroService1.xsd" MetadataType="Schema" ID="520023c9-2a28-44ad-b98f-61765a8566d3" SourceId="1" SourceUrl="http://localhost:52493/RegistroService.svc?xsd=xsd1" />
+    <MetadataFile FileName="RegistroService2.xsd" MetadataType="Schema" ID="d78f1b4d-55f0-4e47-9aba-e94a75de6d77" SourceId="1" SourceUrl="http://localhost:52493/RegistroService.svc?xsd=xsd0" />
+    <MetadataFile FileName="RegistroService3.xsd" MetadataType="Schema" ID="765c5974-cb9e-42fd-b02e-ccb6da133c07" SourceId="1" SourceUrl="http://localhost:52493/RegistroService.svc?xsd=xsd3" />
+    <MetadataFile FileName="RegistroService.wsdl" MetadataType="Wsdl" ID="32db4807-bb2d-4185-b72e-869ac24b30dd" SourceId="1" SourceUrl="http://localhost:52493/RegistroService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
