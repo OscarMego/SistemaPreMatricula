@@ -38,7 +38,7 @@ namespace ServicioGestionSolicitudes
             {
                 throw new FaultException<ManejadorException>(new ManejadorException()
                 {
-                    Codigo = "103",
+                    Codigo = "100",
                     Descripcion = "DNI no puede ser vacío"
                 }, new FaultReason("Error al intentar obtener apoderado"));
             }

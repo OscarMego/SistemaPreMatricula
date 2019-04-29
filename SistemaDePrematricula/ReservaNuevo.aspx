@@ -136,8 +136,8 @@
 
 
         $(document).ready(function () {
-            const monthNames = ["January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"
+            const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"
             ];
             var qntYears = 20;
             var selectYear = $("#year");
