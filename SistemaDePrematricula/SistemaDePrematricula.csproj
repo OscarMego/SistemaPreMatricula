@@ -44,12 +44,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging, Version=2.1.2.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.2.1.2\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="IronSharp.Core, Version=2013.11.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iron.IronCore.3.0.9\lib\IronSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IronSharp.IronMQ, Version=2013.11.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iron.IronMQ.3.0.13\lib\IronSharp.IronMQ.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
@@ -263,6 +277,7 @@
     <None Include="Connected Services\SolicitudServWS\SolicitudService4.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="iron.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="image\confirmar-matricula.png" />
     <Content Include="obj\Debug\SistemaDePrematricula.csproj.FileListAbsolute.txt" />
@@ -385,6 +400,7 @@
     <Compile Include="Dominio\Estudiante.cs" />
     <Compile Include="Dominio\MensajeCorreoRequest.cs" />
     <Compile Include="Dominio\MensajeCorreoResponse.cs" />
+    <Compile Include="Dominio\MensajeTextoRequest.cs" />
     <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="GestionSolicitudes.aspx.cs">
       <DependentUpon>GestionSolicitudes.aspx</DependentUpon>

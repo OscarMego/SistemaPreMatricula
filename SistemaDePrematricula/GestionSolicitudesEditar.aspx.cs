@@ -13,6 +13,8 @@ using System.Web.Script.Serialization;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using IronSharp.Core;
+using IronSharp.IronMQ;
 
 namespace SistemaDePrematricula
 {
@@ -53,6 +55,7 @@ namespace SistemaDePrematricula
                 txtIdNivel.Value = solicitud.IdNivel.ToString();
                 txtNombreApoderado.Value = solicitud.apoderado.Nombres + " " + solicitud.apoderado.ApellidoPaterno;
                 txtCorreoApoderado.Value = solicitud.apoderado.Correo;
+                txtNroCelularApoderado.Value = solicitud.apoderado.NroCelular;
             }
 
 
@@ -106,15 +109,16 @@ namespace SistemaDePrematricula
                 if (ls_serviciocorreo == null)
                     ls_serviciocorreo = "";
 
-                if (solicitud.Estado == "Citado" && ls_serviciocorreo != "")
+                if (solicitud.Estado == "Citado" && ls_serviciocorreo != "" && apoderado.Correo != "")
                 {
+                    //Correo desde el servicio
                     JavaScriptSerializer js = new JavaScriptSerializer();
                     MensajeCorreoRequest solicitudCorreo = new MensajeCorreoRequest()
                     {
                         emisor = "sitece.notificaciones@gmail.com",
                         clave = "sitece$2019",
                         destinatario = apoderado.Correo,
-                        asunto = "Citación del Colegio Maranguita",
+                        asunto = "Citación del Colegio Maristas",
                         mensaje = "Sr(a) " + apoderado.Nombres + ", Ud está citado al colegio el día " + solicitud.FechaCita.ToString("dd/MM/yyyy")
                     };
 
@@ -131,6 +135,32 @@ namespace SistemaDePrematricula
                     StreamReader reader = new StreamReader(rsp.GetResponseStream());
                     string tramaJson = reader.ReadToEnd();
                     MensajeCorreoResponse respuestaCorreo = js.Deserialize<MensajeCorreoResponse>(tramaJson);
+                    
+                    //Correo electrónico Cola
+                    var ironMq = IronSharp.IronMQ.Client.New(new IronClientConfig { ProjectId = WebConfigurationManager.AppSettings["IronProjectId"], Token = WebConfigurationManager.AppSettings["IronToken"], Host = "mq-aws-eu-west-1-1.iron.io", Scheme = "http", Port = 80 });
+
+                    MensajeCorreoRequest cor = new MensajeCorreoRequest()
+                    {
+                        emisor = "sitece.notificaciones@gmail.com",
+                        clave = "sitece$2019",
+                        destinatario = apoderado.Correo,
+                        asunto = "Citación del Colegio Maristas",
+                        mensaje = "Sr(a) " + apoderado.Nombres + ", Ud está citado al colegio el día " + solicitud.FechaCita.ToString("dd/MM/yyyy")
+                    };
+                    QueueClient queue = ironMq.Queue("mensajeCorreo");
+                    string messageId = queue.Post(cor);
+
+                    //SMS Cola
+                    if (apoderado.NroCelular != "")
+                    {
+                        MensajeTextoRequest men = new MensajeTextoRequest()
+                        {
+                            nroCelular = apoderado.NroCelular,
+                            mensaje = "Sr(a) " + apoderado.Nombres + ", Ud está citado al colegio el día " + solicitud.FechaCita.ToString("dd/MM/yyyy")
+                        };
+                        QueueClient queue2 = ironMq.Queue("mensajeTexto");
+                        string messageId2 = queue2.Post(men);
+                    }                    
                 }
                 return "OK";
             }

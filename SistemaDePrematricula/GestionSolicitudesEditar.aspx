@@ -37,6 +37,8 @@
         <input id="txtDNIApoderado" type="hidden" runat="server" />
         <input id="txtNombreApoderado" type="hidden" runat="server" />
         <input id="txtCorreoApoderado" type="hidden" runat="server" />
+        <input id="txtNroCelularApoderado" type="hidden" runat="server" />
+        
 
         <div class="container body-content">
             <h2>Edición de la Solicitud</h2>
@@ -123,6 +125,7 @@
                 var objApoderado = new Object();
                 objApoderado.Nombres = $("#txtNombreApoderado").val();
                 objApoderado.Correo = $("#txtCorreoApoderado").val();
+                objApoderado.NroCelular = $("#txtNroCelularApoderado").val();
 
                 if (objSolicitud.Estado == "Citado")
                 {
