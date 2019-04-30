@@ -380,6 +380,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dominio\Estudiante.cs" />
     <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="GestionSolicitudes.aspx.cs">
       <DependentUpon>GestionSolicitudes.aspx</DependentUpon>

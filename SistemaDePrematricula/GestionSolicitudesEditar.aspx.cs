@@ -1,9 +1,14 @@
-﻿using SistemaDePrematricula.SolicitudServWS;
+﻿using SistemaDePrematricula.Dominio;
+using SistemaDePrematricula.SolicitudServWS;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.ServiceModel;
 using System.Web;
+using System.Web.Configuration;
+using System.Web.Script.Serialization;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -25,6 +30,7 @@ namespace SistemaDePrematricula
 
         private void obtener()
         {
+            string ls_token = WebConfigurationManager.AppSettings["token"];
             SolicitudServWS.Solicitud solicitud = null;
             
             SolicitudServWS.SolicitudServiceClient solicitudService = new SolicitudServWS.SolicitudServiceClient();
@@ -44,6 +50,28 @@ namespace SistemaDePrematricula
                 txtObservaciones.Value = solicitud.Observaciones;
                 txtCertificado.Value = solicitud.Certificado;
                 txtIdNivel.Value = solicitud.IdNivel.ToString();
+            }
+
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50925/EstudianteService.svc/Estudiante/" + ls_token  + "/" + txtDNI.Value);
+            request.Method = "GET";
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string tramaJson = reader.ReadToEnd();
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            List<Estudiante> estudiantesObtenidos = js.Deserialize<List<Estudiante>>(tramaJson);
+
+            if (estudiantesObtenidos.Count > 0)
+            {
+                for (int i = 0; i < estudiantesObtenidos.Count; i++)
+                {
+                    if (estudiantesObtenidos[i].Deuda > 0)
+                    {
+                        txtAlertas.Value = txtAlertas.Value + "- El alumno debe " + estudiantesObtenidos[i].Deuda.ToString("#,###.00") + " del año " + estudiantesObtenidos[i].Anho.ToString() + Environment.NewLine;
+                    }
+                }                
             }
 
         }

@@ -78,11 +78,13 @@
                             <label for="txtCita">F. Cita</label>
                             <input type="text" class="form-control" id="txtCita" runat="server" />
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="txtObservaciones">Observaciones</label>
-                                <textarea id="txtObservaciones" class="form-control" cols="20" rows="4" runat="server"></textarea>
-                            </div>
+                        <div class="form-group col-md-6">
+                            <label for="txtAlertas">Alertas</label>
+                            <textarea id="txtAlertas" class="form-control" cols="20" rows="4" runat="server" disabled="disabled"></textarea>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="txtObservaciones">Observaciones</label>
+                            <textarea id="txtObservaciones" class="form-control" cols="20" rows="4" runat="server"></textarea>
                         </div>
                         <div class="row">
                             <div class="col-md-6"></div>
