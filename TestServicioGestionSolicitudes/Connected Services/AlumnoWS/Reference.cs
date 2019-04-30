@@ -273,6 +273,12 @@ namespace TestServicioGestionSolicitudes.AlumnoWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlumnoService/Obtener", ReplyAction="http://tempuri.org/IAlumnoService/ObtenerResponse")]
         System.Threading.Tasks.Task<TestServicioGestionSolicitudes.AlumnoWS.Alumno> ObtenerAsync(string dni);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlumnoService/Crear", ReplyAction="http://tempuri.org/IAlumnoService/CrearResponse")]
+        TestServicioGestionSolicitudes.AlumnoWS.Alumno Crear([System.ServiceModel.MessageParameterAttribute(Name="Crear")] TestServicioGestionSolicitudes.AlumnoWS.Alumno Crear1);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlumnoService/Crear", ReplyAction="http://tempuri.org/IAlumnoService/CrearResponse")]
+        System.Threading.Tasks.Task<TestServicioGestionSolicitudes.AlumnoWS.Alumno> CrearAsync(TestServicioGestionSolicitudes.AlumnoWS.Alumno Crear);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -308,6 +314,14 @@ namespace TestServicioGestionSolicitudes.AlumnoWS {
         
         public System.Threading.Tasks.Task<TestServicioGestionSolicitudes.AlumnoWS.Alumno> ObtenerAsync(string dni) {
             return base.Channel.ObtenerAsync(dni);
+        }
+        
+        public TestServicioGestionSolicitudes.AlumnoWS.Alumno Crear(TestServicioGestionSolicitudes.AlumnoWS.Alumno Crear1) {
+            return base.Channel.Crear(Crear1);
+        }
+        
+        public System.Threading.Tasks.Task<TestServicioGestionSolicitudes.AlumnoWS.Alumno> CrearAsync(TestServicioGestionSolicitudes.AlumnoWS.Alumno Crear) {
+            return base.Channel.CrearAsync(Crear);
         }
     }
 }

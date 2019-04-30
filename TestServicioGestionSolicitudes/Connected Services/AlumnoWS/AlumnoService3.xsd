@@ -15,4 +15,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Crear">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ServicioAlumnos.Dominio" minOccurs="0" name="Crear" nillable="true" type="q2:Alumno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CrearResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ServicioAlumnos.Dominio" minOccurs="0" name="CrearResult" nillable="true" type="q3:Alumno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

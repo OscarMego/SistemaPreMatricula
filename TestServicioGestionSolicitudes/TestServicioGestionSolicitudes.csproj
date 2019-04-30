@@ -136,21 +136,6 @@
     <WCFMetadataStorage Include="Connected Services\SolicitudWS\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AlumnoWS\AlumnoService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\AlumnoWS\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\AlumnoWS\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\AlumnoWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\SolicitudWS\SolicitudService.disco" />
   </ItemGroup>
   <ItemGroup>
@@ -176,6 +161,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ApoderadoWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AlumnoWS\AlumnoService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AlumnoWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AlumnoWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AlumnoWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

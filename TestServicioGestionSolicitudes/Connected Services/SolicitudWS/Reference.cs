@@ -642,10 +642,6 @@ namespace TestServicioGestionSolicitudes.SolicitudWS {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-
-        internal class ApoderadoServiceClient
-        {
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

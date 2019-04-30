@@ -17,11 +17,21 @@
   <wsdl:message name="IAlumnoService_Obtener_ManejadorExceptionFault_FaultMessage">
     <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/ServicioGestionSolicitudes.Errores" name="detail" element="q1:ManejadorException" />
   </wsdl:message>
+  <wsdl:message name="IAlumnoService_Crear_InputMessage">
+    <wsdl:part name="parameters" element="tns:Crear" />
+  </wsdl:message>
+  <wsdl:message name="IAlumnoService_Crear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAlumnoService">
     <wsdl:operation name="Obtener">
       <wsdl:input wsaw:Action="http://tempuri.org/IAlumnoService/Obtener" message="tns:IAlumnoService_Obtener_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAlumnoService/ObtenerResponse" message="tns:IAlumnoService_Obtener_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IAlumnoService/ObtenerManejadorExceptionFault" name="ManejadorExceptionFault" message="tns:IAlumnoService_Obtener_ManejadorExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Crear">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlumnoService/Crear" message="tns:IAlumnoService_Crear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlumnoService/CrearResponse" message="tns:IAlumnoService_Crear_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAlumnoService" type="tns:IAlumnoService">
@@ -37,6 +47,15 @@
       <wsdl:fault name="ManejadorExceptionFault">
         <soap:fault use="literal" name="ManejadorExceptionFault" namespace="" />
       </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Crear">
+      <soap:operation soapAction="http://tempuri.org/IAlumnoService/Crear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="AlumnoService">
