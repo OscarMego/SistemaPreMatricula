@@ -58,6 +58,24 @@ namespace SistemaDePrematricula {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden txtDNIApoderado;
         
         /// <summary>
+        /// txtNombreApoderado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden txtNombreApoderado;
+        
+        /// <summary>
+        /// txtCorreoApoderado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden txtCorreoApoderado;
+        
+        /// <summary>
         /// txtDNI control.
         /// </summary>
         /// <remarks>

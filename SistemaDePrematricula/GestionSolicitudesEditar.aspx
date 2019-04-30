@@ -35,6 +35,8 @@
         <input id="txtCertificado" type="hidden" runat="server" />
         <input id="txtIdNivel" type="hidden" runat="server" />
         <input id="txtDNIApoderado" type="hidden" runat="server" />
+        <input id="txtNombreApoderado" type="hidden" runat="server" />
+        <input id="txtCorreoApoderado" type="hidden" runat="server" />
 
         <div class="container body-content">
             <h2>Edición de la Solicitud</h2>
@@ -118,6 +120,10 @@
                 objSolicitud.FechaRespuesta = new Date(Date.now());
                 objSolicitud.IdPreMatricula = parseInt($("#txtIdPreMatricula").val());
 
+                var objApoderado = new Object();
+                objApoderado.Nombres = $("#txtNombreApoderado").val();
+                objApoderado.Correo = $("#txtCorreoApoderado").val();
+
                 if (objSolicitud.Estado == "Citado")
                 {
                     if (ls_cita == "") {
@@ -136,7 +142,7 @@
                     dataType: "json",
                     async: true,
                     cache: false,
-                    data: JSON.stringify({ solicitud: objSolicitud }),
+                    data: JSON.stringify({ solicitud: objSolicitud, apoderado: objApoderado }),
                     success: function (data) {
                         var solicitud = data.d;
                         if (data.d == "OK") {

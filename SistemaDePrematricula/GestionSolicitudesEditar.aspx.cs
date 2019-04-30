@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.ServiceModel;
+using System.Text;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Script.Serialization;
@@ -50,6 +51,8 @@ namespace SistemaDePrematricula
                 txtObservaciones.Value = solicitud.Observaciones;
                 txtCertificado.Value = solicitud.Certificado;
                 txtIdNivel.Value = solicitud.IdNivel.ToString();
+                txtNombreApoderado.Value = solicitud.apoderado.Nombres + " " + solicitud.apoderado.ApellidoPaterno;
+                txtCorreoApoderado.Value = solicitud.apoderado.Correo;
             }
 
 
@@ -77,7 +80,7 @@ namespace SistemaDePrematricula
         }
 
         [WebMethod]
-        public static String Grabar(SolicitudServWS.Solicitud solicitud)
+        public static String Grabar(SolicitudServWS.Solicitud solicitud, ApoderadoServWS.Apoderado apoderado)
         {
             try
             {
@@ -98,6 +101,37 @@ namespace SistemaDePrematricula
                 //};
 
                 Solicitud solicitudModificado = solicitudService.Modificar(solicitud);
+                string ls_serviciocorreo = WebConfigurationManager.AppSettings["servicioCorreo"];
+
+                if (ls_serviciocorreo == null)
+                    ls_serviciocorreo = "";
+
+                if (solicitud.Estado == "Citado" && ls_serviciocorreo != "")
+                {
+                    JavaScriptSerializer js = new JavaScriptSerializer();
+                    MensajeCorreoRequest solicitudCorreo = new MensajeCorreoRequest()
+                    {
+                        emisor = "sitece.notificaciones@gmail.com",
+                        clave = "sitece$2019",
+                        destinatario = apoderado.Correo,
+                        asunto = "Citación del Colegio Maranguita",
+                        mensaje = "Sr(a) " + apoderado.Nombres + ", Ud está citado al colegio el día " + solicitud.FechaCita.ToString("dd/MM/yyyy")
+                    };
+
+                    string jsonSolicitud = js.Serialize(solicitudCorreo);
+                    byte[] ByteCorreo = Encoding.UTF8.GetBytes(jsonSolicitud);
+                    HttpWebRequest request = WebRequest.Create(ls_serviciocorreo) as HttpWebRequest;
+                    request.Method = "POST";
+                    request.ContentLength = ByteCorreo.Length;
+                    request.ContentType = "application/json";
+                    var rqt = request.GetRequestStream();
+
+                    rqt.Write(ByteCorreo, 0, ByteCorreo.Length);
+                    HttpWebResponse rsp = (HttpWebResponse)request.GetResponse();
+                    StreamReader reader = new StreamReader(rsp.GetResponseStream());
+                    string tramaJson = reader.ReadToEnd();
+                    MensajeCorreoResponse respuestaCorreo = js.Deserialize<MensajeCorreoResponse>(tramaJson);
+                }
                 return "OK";
             }
             catch (FaultException<SolicitudServWS.ManejadorException> error)
