@@ -21,6 +21,7 @@ namespace ServicioSITECE.Persistencia
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
                     cmd.Parameters.Add(new SqlParameter("@dni", dni));
+                    cmd.Parameters.Add(new SqlParameter("@anho", anho));
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         if (dr.Read())
@@ -46,8 +47,9 @@ namespace ServicioSITECE.Persistencia
         {
             using (SqlConnection cn = new SqlConnection(strConexion))
             {
+                cn.Open();
                 string sql = "INSERT INTO [dbo].[Estudiante]([Dni],[Anho],[Nombres],[Apellidos],[Deuda],[fechaRegistro],[IdAsociado]) ";
-                sql = sql + "VALUES(@Dni,,@Anho,,@Nombres,,@Apellidos,,@Deuda, ,@fechaRegistro,,@IdAsociado)";
+                sql = sql + "VALUES(@Dni,@Anho,@Nombres,@Apellidos,@Deuda,@fechaRegistro,@IdAsociado)";
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
                     cmd.Parameters.Add(new SqlParameter("@Dni", estudiante.Dni));

@@ -16,7 +16,7 @@ namespace ServicioSITECE
     {
         [FaultContract(typeof(ManejadorException))] // El manejador de errores
         [OperationContract]
-        [WebInvoke(Method = "DELETE", UriTemplate = "Estudiante/{token}/{dniEstudiante}", ResponseFormat = WebMessageFormat.Json)]
-        void InsertEstudiante(string token, string dniEstudiante);
+        [WebInvoke(Method = "DELETE", UriTemplate = "Estudiante/{token}/{dniEstudiante}/{anho}", ResponseFormat = WebMessageFormat.Json)]
+        string DeleteEstudiante(string token, string dniEstudiante,string anho);
     }
 }

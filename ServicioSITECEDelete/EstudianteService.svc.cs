@@ -16,18 +16,19 @@ namespace ServicioSITECE
     {
         private readonly EstudianteDao dao = new EstudianteDao();
 
-        public void InsertEstudiante(string token, string dniEstudiante)
+        public string DeleteEstudiante(string token, string dniEstudiante, string anho)
         {
             ServicioSITECEDelete.AsociadoWSDel.RegistroServiceClient asociado = new ServicioSITECEDelete.AsociadoWSDel.RegistroServiceClient();
-            if (asociado.ObtenerAsociadoToken(token) != null)
+            if (asociado.ObtenerAsociadoToken(token) == null)
             {
-                throw new FaultException<ManejadorException>(new ManejadorException() //de existir generamos una excepcion indicando lo sucedido
+                throw new System.ServiceModel.Web.WebFaultException<ManejadorException>(new ManejadorException() //de existir generamos una excepcion indicando lo sucedido
                 {
                     Codigo = "400",
                     Descripcion = "Token invalido"
-                }, new FaultReason("Error al intentar Eliminar"));
+                }, System.Net.HttpStatusCode.InternalServerError);
             }
-            dao.delete(dniEstudiante);
+            dao.delete(dniEstudiante, anho);
+            return "Alumno eliminado";
         }
 
     }

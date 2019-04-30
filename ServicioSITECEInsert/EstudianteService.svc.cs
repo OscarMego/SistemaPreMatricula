@@ -13,18 +13,24 @@ namespace ServicioSITECE
 
         public Estudiante InsertEstudiante(string token, Estudiante estudiante)
         {
-
-
             ServicioSITECEInsert.AsociadoWSIns.RegistroServiceClient asociado = new ServicioSITECEInsert.AsociadoWSIns.RegistroServiceClient();
-            if (asociado.ObtenerAsociadoToken(token) != null)
+            if (asociado.ObtenerAsociadoToken(token) == null)
             {
-                throw new FaultException<ManejadorException>(new ManejadorException() //de existir generamos una excepcion indicando lo sucedido
+                throw new System.ServiceModel.Web.WebFaultException<ManejadorException>(new ManejadorException() //de existir generamos una excepcion indicando lo sucedido
                 {
                     Codigo = "400",
                     Descripcion = "Token invalido"
-                }, new FaultReason("Error al intentar crear"));
+                }, System.Net.HttpStatusCode.InternalServerError);
+            }
+            if (dao.getEstudiante(estudiante.Dni, estudiante.Anho) != null)
+            {
+                throw new System.ServiceModel.Web.WebFaultException<ManejadorException>(new ManejadorException() //de existir generamos una excepcion indicando lo sucedido
+                {
+                    Codigo = "300",
+                    Descripcion = "Alumno ya se encuentra registrado para el año"
+                }, System.Net.HttpStatusCode.InternalServerError);
             }
             return dao.insert(estudiante);
-        }        
+        }
     }
 }

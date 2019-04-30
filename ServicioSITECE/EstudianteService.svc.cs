@@ -18,13 +18,13 @@ namespace ServicioSITECE
         public List<Estudiante> ObtenerEstudiante(string token, string dniEstudiante)
         {
             AsociadoWS.RegistroServiceClient asociado = new AsociadoWS.RegistroServiceClient();
-            if(asociado.ObtenerAsociadoToken(token) != null)
+            if(asociado.ObtenerAsociadoToken(token) == null)
             {
-                throw new FaultException<ManejadorException>(new ManejadorException() //de existir generamos una excepcion indicando lo sucedido
+                throw new System.ServiceModel.Web.WebFaultException<ManejadorException>(new ManejadorException() //de existir generamos una excepcion indicando lo sucedido
                 {
                     Codigo = "400",
                     Descripcion = "Token invalido"
-                }, new FaultReason("Error al intentar obtener"));
+                },System.Net.HttpStatusCode.InternalServerError);
             }
             return dao.getEstudiantes(dniEstudiante);
         }
