@@ -30,6 +30,9 @@
 
 
     <div id="dvConfirmacion" style="display: none">
+        <div class="row">
+             <div class="col-md-offset-11 col-md-1"><a href="/">Salir</a></div>
+        </div>
         <h1>Lista de Solicitudes</h1>
         <div class="container">
             <div class="panel panel-primary">

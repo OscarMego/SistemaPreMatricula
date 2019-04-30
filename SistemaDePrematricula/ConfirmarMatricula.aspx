@@ -29,7 +29,11 @@
         </div>
     </div>
     <div id="dvConfirmacion" style="display: none">
-        <h1>Confirmación de matrícula</h1>
+        <div class="row">
+            <div class="col-md-11">  <h1>Confirmación de matrícula</h1></div>
+             <div class="col-md-1"><a href="/">Salir</a></div>
+        </div>
+      
         <div class="container">
             <div class="panel panel-primary">
                 <div class="panel-body">

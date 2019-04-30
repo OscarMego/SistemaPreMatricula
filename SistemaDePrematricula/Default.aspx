@@ -6,13 +6,13 @@
         <div class="row">
             <div class="col-lg-6 col-sm-12" style="cursor: pointer">
                 <a runat="server" href="~/ConfirmarMatricula">
-                    <img src="image/confirmar-matricula.png" style="width: 250px" />
+                    <img src="image/confirmar-matricula.png" style="width: 200px" />
                     <h2>Confirmar Matrícula</h2>
                 </a>
             </div>
             <div class="col-lg-6 col-sm-12" style="cursor: pointer">
                 <a runat="server" href="~/GestionSolicitudes">
-                    <img src="image/gestionar-matricula.png" style="width: 250px" /><h2>Gestionar Matrícula</h2>
+                    <img src="image/gestionar-matricula.png" style="width: 200px" /><h2>Gestionar Matrícula</h2>
                 </a>
             </div>
 
@@ -20,12 +20,12 @@
         <div class="row">
             <div class="col-lg-6 col-sm-12" style="cursor: pointer">
                 <a runat="server" href="~/ConsultarCursos">
-                    <img src="image/consultar-cursos.png" style="width: 250px" /><h2>Consultar Cursos</h2>
+                    <img src="image/consultar-cursos.png" style="width: 200px" /><h2>Consultar Cursos</h2>
                 </a>
             </div>
             <div class="col-lg-6 col-sm-12" style="cursor: pointer">
                 <a runat="server" href="~/ReservaNuevo">
-                    <img src="image/reservar.svg" style="width: 250px" /><h2>Reservar Pre Matrícula</h2>
+                    <img src="image/reservar.svg" style="width: 200px" /><h2>Reservar Pre Matrícula</h2>
                 </a>
             </div>
 
