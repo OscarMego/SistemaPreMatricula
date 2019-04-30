@@ -79,7 +79,7 @@ namespace SistemaDePrematricula
             }
             catch (Exception ex)
             {
-                throw new Exception("ERROR: " + ex.Message);
+                throw new Exception(ex.Message);
             }
         }
     }

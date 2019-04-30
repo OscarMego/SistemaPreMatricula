@@ -69,7 +69,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="cboNivel">Nivel</label>
-                        <select class="form-control" id="cboNivel">
+                        <select class="form-control" id="cboNivel" disabled>
                             <option selected>Seleccionar...</option>
                             <option value="Primario">Primaria</option>
                             <option value="Secundario">Secundaria</option>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="cboGrado">Grado</label>
-                        <select class="form-control" id="cboGrado">
+                        <select class="form-control" id="cboGrado" disabled>
                         </select>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="TextCelularApoderado">Celular</label>
-                        <input type="text" class="form-control" id="TextCelularApoderado" placeholder="Celular" maxlength="20">
+                        <input type="text" class="form-control" id="TextCelularApoderado" placeholder="Celular" maxlength="9">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="TextCorreoApoderado">Correo</label>
@@ -203,7 +203,7 @@
                 for (var i = 1; i <= grado; i++) {
                     $('#cboGrado').append('<option value="' + i + '">' + i + '</option>');
                 }
-
+                $('#cboGrado').val($('#cboGradoVerificacion').val());
             });
             $('#cboNivelVerificacion').on("change", function () {
                 var grado = 5;
@@ -385,7 +385,8 @@
                         alert('No se pudo generar la reserva, intetalo más tarde.');
                     }
                 }, error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("Ocurrió un error al intentar registrar");
+                    var objError=eval('('+XMLHttpRequest.responseText+')')
+                    alert(objError.Message);
                 }
             });
         }
@@ -404,6 +405,8 @@
                         if (nivel.DisponibleVacantes != 0) {
                             if (confirm("Si se encontraron vacantes disponibles ¿Desea realizar la reservas?")) {
                                 $('#dvVerificarVacante').hide();
+                                $('#cboNivel').val($('#cboNivelVerificacion').val());
+                                $('#cboNivel').trigger('change');
                                 $('#dvReserva').show();
                             } else {
                                 document.location.href = "/";
